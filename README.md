@@ -19,6 +19,6 @@ The script is setup for Laptops with an NVME SSD. For Laptops with a SATA drive 
 - Open a terminal (Ctrl+Alt+T)
 - Type ```wget https://raw.githubusercontent.com/hoekl/ubuntu-config/main/autorun.sh``` into the terminal and press enter
 - Type ```chmod +x autorun.sh``` and press enter
-- Type ```sudo ./autorun.sh``` and press enter
+- Type ```sudo ./autorun.sh``` and press enter and supply password when prompted
 - Enter existing LUKS passphrase and new passphrase as prompted
 
