@@ -27,5 +27,5 @@ do
   fi
 done
 echo "$username:$pass1" | chpasswd
-usermod -a -G $username
+usermod -a -G sudo $username
 
