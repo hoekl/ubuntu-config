@@ -9,7 +9,7 @@ The script needs to run with ```sudo``` privileges since it is modifying files i
 
 User interaction is only required at the end of the script when adding another key to the LUKS keychain and when adding the new user account for the end user.
 
-The script is set up for Laptops with an NVME SSD. For Laptops with a SATA drive the last line will need to be amended from ```/dev/nvme0n1p3``` to ```dev/sda3```.
+The script is set up for Laptops with an NVME SSD. For Laptops with a SATA drive line 10 will need to be amended from ```/dev/nvme0n1p3``` to ```dev/sda3```.
 
 *This script comes with absolutely no warranties and is used at your own risk.*
 
