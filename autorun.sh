@@ -12,8 +12,9 @@ function get_pw {
   fi
 }
 
-printf "\n\nSelect which OS you are setting up:\n1: Ubuntu 20.04 LTS\n2: CentOS 7\n\n"
+printf "\nSelect which OS you are setting up:\n\n1: Ubuntu 20.04 LTS\n2: CentOS 7\n\n"
 read choice
+printf "\n"
 if [ $choice = "1" ]
 then
 apt-get update
@@ -58,7 +59,7 @@ then
   done
   echo $password | passwd $username --stdin
 fi
-printf "Reboot now to apply all changes?: (y/n)"
+printf "Reboot now to apply all changes? (y/n): "
 read rebootchoice
 if [ $rebootchoice = "y" ] || [ $rebootchoice = "Y" ]
 then
