@@ -1,5 +1,18 @@
 #!/bin/bash
-printf "Select which OS you are setting up:\n1: Ubuntu 20.04 LTS\n2: CentOS 7\n"
+check=0
+function get_pw {
+  printf "Enter new password: "
+  read pass1
+  printf "Verify password: "
+  read pass2
+  if [ "$pass1" = "$pass2" ]
+  then
+  password=$pass1
+  check=1
+  fi
+}
+
+printf "\n\nSelect which OS you are setting up:\n1: Ubuntu 20.04 LTS\n2: CentOS 7\n\n"
 read choice
 if [ $choice = "1" ]
 then
@@ -18,19 +31,11 @@ printf "Enter full name of user: "
 read fullname
 adduser --gecos "" --disabled-password $username
 usermod -c "$fullname" $username
-check=0
 while [ $check = 0 ];
 do
-  printf "Enter new password: "
-  read pass1
-  printf "Verify password: "
-  read pass2
-  if [ "$pass1" = "$pass2" ]
-  then
-  check=1
-  fi
+  get_pw
 done
-echo "$username:$pass1" | chpasswd
+echo "$username:$password" | chpasswd
 usermod -a -G sudo $username
 elif [ $choice = "2" ]
 then
@@ -47,17 +52,17 @@ then
   printf "Enter full name of user: "
   read fullname
   useradd $username -U -G wheel -c "$fullname"
-  check=0
   while [ $check = 0 ];
   do
-    printf "Enter new password: "
-    read pass1
-    printf "Verify password: "
-    read pass2
-    if [ "$pass1" = "$pass2" ]
-    then
-    check=1
-    fi
+    get_pw
   done
-  echo $pass1 | passwd $username --stdin
+  echo $password | passwd $username --stdin
+fi
+printf "Reboot now to apply all changes?: (y/n)"
+read rebootchoice
+if [ $rebootchoice = "y" ] || [ $rebootchoice = "Y" ]
+then
+  reboot
+else
+  exit
 fi
