@@ -17,6 +17,7 @@ The script is set up for Laptops with an NVME SSD. For Laptops with a SATA drive
 ## Usage
 
 - Open a terminal (Ctrl+Alt+T in Ubuntu)
+- Type ```cd Documents```
 - Type ```wget https://raw.githubusercontent.com/hoekl/ubuntu-config/main/autorun.sh``` into the terminal and press enter
 - Type ```chmod +x autorun.sh``` and press enter
 - Type ```sudo ./autorun.sh``` and press enter and supply password when prompted
