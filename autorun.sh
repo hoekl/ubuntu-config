@@ -19,6 +19,7 @@ if [ $choice = "1" ]
 then
 apt-get update
 apt-get upgrade -y
+apt autoremove -y
 sed -i '/daemon/a InitialSetupEnable = false' /etc/gdm3/custom.conf
 sed -i 's/SystemAccount=false/SystemAccount=true/' /var/lib/AccountsService/users/it-services
 apt-get install unattended-upgrades
