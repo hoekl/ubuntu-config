@@ -12,7 +12,7 @@ function get_pw {
   fi
 }
 
-printf "\nSelect which OS you are setting up:\n\n1: Ubuntu 20.04 LTS\n2: CentOS 7\n\n"
+printf "\nSelect which OS you are setting up:\n\n1: Ubuntu 20.04 LTS\n2: CentOS 7\n\n:"
 read choice
 printf "\n"
 if [ $choice = "1" ]
